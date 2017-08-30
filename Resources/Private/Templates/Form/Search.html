@@ -1,0 +1,33 @@
+<f:layout name="Default" />
+
+<f:section name="main">
+  <div class="grid_8 floatleft">
+    <f:render partial="Form/Search" arguments="{searchWord: searchWord}" />
+    <f:render partial="Form/Glossar" arguments="{glossar: glossar}"/>
+
+    <f:for each="{forms}" as="form">
+      <dl class="extdl">
+        <dt>
+          <span aria-hidden="true" class="icon-download"></span>
+          <f:if condition="{form.urlToFile}">
+            <f:then>
+              <a href="{f:uri.external(uri: '{form.urlToFile}')}" target="_blank">{form.title}</a>
+            </f:then>
+            <f:else>
+              <f:if condition="{form.file -> f:count()}">
+                <f:for each="{form.file}" as="file">
+                  <a href="{file.originalResource.publicUrl}" target="_blank">{form.title}</a>
+                </f:for>
+              </f:if>
+            </f:else>
+          </f:if>
+        </dt>
+        <f:if condition="{form.categories}">
+          <f:for each="{form.categories}" as="category">
+            <dd>{category.title}</dd>
+          </f:for>
+        </f:if>
+      </dl>
+    </f:for>
+  </div>
+</f:section>

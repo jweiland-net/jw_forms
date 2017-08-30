@@ -1,0 +1,14 @@
+plugin.tx_jwforms {
+	view {
+		# cat=plugin.tx_jwforms/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:jw_forms/Resources/Private/Templates/
+		# cat=plugin.tx_jwforms/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:jw_forms/Resources/Private/Partials/
+		# cat=plugin.tx_jwforms/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:jw_forms/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_jwforms//a; type=string; label=Default storage PID
+		storagePid =
+	}
+}
