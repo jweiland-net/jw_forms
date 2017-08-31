@@ -13,6 +13,7 @@ namespace JWeiland\JwForms\Controller;
  *
  * The TYPO3 project - inspiring people to share!
  */
+
 use JWeiland\JwForms\Domain\Model\Form;
 use JWeiland\JwForms\Domain\Repository\FormRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
@@ -31,7 +32,7 @@ class FormController extends ActionController
      * @var FormRepository
      */
     protected $formRepository;
-    
+
     /**
      * @var string
      */
@@ -109,7 +110,7 @@ class FormController extends ActionController
         }
 
         // mark letter as link (true) or not-linked (false)
-        $glossary = array();
+        $glossary = [];
         foreach ($possibleLetters as $possibleLetter) {
             $glossary[$possibleLetter] = (strpos($availableLetters, $possibleLetter) !== false) ? true : false;
         }

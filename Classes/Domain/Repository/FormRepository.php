@@ -28,9 +28,9 @@ class FormRepository extends Repository
     /**
      * @var array
      */
-    protected $defaultOrderings = array(
+    protected $defaultOrderings = [
         'title' => QueryInterface::ORDER_ASCENDING
-    );
+    ];
 
     /**
      * find all records starting with given letter
@@ -41,12 +41,12 @@ class FormRepository extends Repository
      *
      * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findByStartingLetter($letter, $searchWord, array $settings = array()) {
+    public function findByStartingLetter($letter, $searchWord, array $settings = []) {
         $query = $this->createQuery();
-        $placeHolders = array(
+        $placeHolders = [
             'tx_jwforms_domain_model_form',
             implode(',', $query->getQuerySettings()->getStoragePageIds())
-        );
+        ];
 
         // add query for letter
         if ($letter) {
@@ -58,7 +58,7 @@ class FormRepository extends Repository
                 });
                 $placeHolders = array_merge($placeHolders, $range);
             } else {
-                $orQueryForLetter = array('tx_jwforms_domain_model_form.title LIKE ?');
+                $orQueryForLetter = ['tx_jwforms_domain_model_form.title LIKE ?'];
                 $placeHolders[] = $letter . '%';
             }
             $additionalOrClauseForLetter = ' AND (' . implode(' OR ', $orQueryForLetter) . ') ';
@@ -68,7 +68,7 @@ class FormRepository extends Repository
 
         // add query for searchWord
         if ($searchWord) {
-            $orQueryForSearchWord = array();
+            $orQueryForSearchWord = [];
             $orQueryForSearchWord[] = 'tx_jwforms_domain_model_form.title LIKE ?';
             $orQueryForSearchWord[] = 'tx_jwforms_domain_model_form.tags LIKE ?';
             $orQueryForSearchWord[] = 'sys_category.title LIKE ?';
@@ -83,7 +83,7 @@ class FormRepository extends Repository
         // add query for categories
         if ($settings['categories']) {
             // create OR-Query for categories
-            $orQueryForCategories = array();
+            $orQueryForCategories = [];
             foreach (GeneralUtility::intExplode(',', $settings['categories']) as $category) {
                 $orQueryForCategories[] = 'sys_category_record_mm.uid_local IN (?)';
                 $placeHolders[] = (integer) $category;
@@ -123,7 +123,7 @@ class FormRepository extends Repository
         /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Query $query */
         $query = $this->createQuery();
 
-        $placeHolders = array();
+        $placeHolders = [];
         $placeHolders[] = 'tx_jwforms_domain_model_form';
         $placeHolders[] = 'categories';
         $placeHolders[] = implode(',', $query->getQuerySettings()->getStoragePageIds());
@@ -133,7 +133,7 @@ class FormRepository extends Repository
         // add query for categories
         if (!empty($categories)) {
             // create OR-Query for categories
-            $orQueryForCategories = array();
+            $orQueryForCategories = [];
             foreach (GeneralUtility::intExplode(',', $categories) as $category) {
                 $orQueryForCategories[] = 'sys_category_record_mm.uid_local IN (?)';
                 $placeHolders[] = (int)$category;
@@ -156,7 +156,7 @@ class FormRepository extends Repository
             BackendUtility::deleteClause('tx_jwforms_domain_model_form')	. '
         ', $placeHolders
         )->execute(true);
-        
+
         return $availableLetters;
     }
 }

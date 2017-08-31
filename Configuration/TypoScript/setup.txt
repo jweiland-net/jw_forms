@@ -1,8 +1,8 @@
 plugin.tx_jwforms {
 	view {
-		templateRootPath = {$plugin.tx_jwforms.view.templateRootPath}
-		partialRootPath = {$plugin.tx_jwforms.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_jwforms.view.layoutRootPath}
+		templateRootPaths.100 = {$plugin.tx_jwforms.view.templateRootPath}
+		partialRootPaths.100 = {$plugin.tx_jwforms.view.partialRootPath}
+		layoutRootPaths.100 = {$plugin.tx_jwforms.view.layoutRootPath}
 	}
 	persistence {
 		storagePid = {$plugin.tx_jwforms.persistence.storagePid}

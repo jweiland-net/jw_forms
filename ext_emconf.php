@@ -10,9 +10,10 @@
 # "version" and "dependencies" must not be touched!
 ########################################################################
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = [
     'title' => 'JW Forms',
-    'description' => 'JW Forms',
+    'description' => 'This extension gives you the possibility to display title and file ' .
+        'of forms (PDF, ...) by starting letter and search forms of this list.',
     'category' => 'plugin',
     'author' => 'Stefan Froemken',
     'author_email' => 'sfroemken@jweiland.net',
@@ -20,21 +21,21 @@ $EM_CONF[$_EXTKEY] = array(
     'shy' => '',
     'priority' => '',
     'module' => '',
-    'state' => 'alpha',
+    'state' => 'stable',
     'internal' => '',
     'uploadfolder' => '0',
     'createDirs' => '',
     'modify_tables' => '',
     'clearCacheOnLoad' => 0,
     'lockType' => '',
-    'version' => '0.2.0',
-    'constraints' => array(
-        'depends' => array(
-            'typo3' => '6.2',
-        ),
-        'conflicts' => array(
-        ),
-        'suggests' => array(
-        ),
-    ),
-);
+    'version' => '1.0.0',
+    'constraints' => [
+        'depends' => [
+            'typo3' => '7.6.0-8.6.99',
+        ],
+        'conflicts' => [
+        ],
+        'suggests' => [
+        ],
+    ],
+];
