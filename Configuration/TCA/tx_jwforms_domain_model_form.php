@@ -59,8 +59,8 @@ return [
                 'items' => [
                     ['', 0],
                 ],
-                'foreign_table' => 'tx_predigtvorlageninvoice_domain_model_invoice',
-                'foreign_table_where' => 'AND tx_predigtvorlageninvoice_domain_model_invoice.pid=###CURRENT_PID### AND tx_predigtvorlageninvoice_domain_model_invoice.sys_language_uid IN (-1,0)',
+                'foreign_table' => 'tx_jwforms_domain_model_form',
+                'foreign_table_where' => 'AND tx_jwforms_domain_model_form.pid=###CURRENT_PID### AND tx_jwforms_domain_model_form.sys_language_uid IN (-1,0)',
             ],
         ],
         'l10n_diffsource' => [
