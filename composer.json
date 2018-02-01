@@ -2,7 +2,7 @@
   "name": "jweiland/jw-forms",
   "type": "typo3-cms-extension",
   "description": "This extension gives you the possibility to display title and file of forms (PDF, ...) by starting letter and search forms of this list",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "keywords": ["typo3", "TYPO3 CMS", "forms"],
   "homepage": "https://jweiland.net",
   "authors": [
