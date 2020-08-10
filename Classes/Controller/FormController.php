@@ -1,18 +1,14 @@
 <?php
-namespace JWeiland\JwForms\Controller;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
+ * This file is part of the package jweiland/jw_forms.
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\JwForms\Controller;
 
 use JWeiland\JwForms\Domain\Model\Form;
 use JWeiland\JwForms\Domain\Repository\FormRepository;
@@ -21,14 +17,10 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
  * Class FormController
- *
- * @package JWeiland\JwForms\Controller
  */
 class FormController extends ActionController
 {
     /**
-     * formRepository
-     *
      * @var FormRepository
      */
     protected $formRepository;
@@ -39,23 +31,17 @@ class FormController extends ActionController
     protected $letters = '0-9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
 
     /**
-     * inject form repository
-     *
      * @param FormRepository $formRepository
-     *
-     * @return void
      */
-    public function injectFormRepository(FormRepository $formRepository)
+    public function injectFormRepository(FormRepository $formRepository): void
     {
         $this->formRepository = $formRepository;
     }
 
     /**
      * action list
-     *
-     * @return void
      */
-    public function listAction()
+    public function listAction(): void
     {
         $forms = $this->formRepository->findByStartingLetter('', '', $this->settings);
         $this->view->assign('forms', $forms);
@@ -64,14 +50,11 @@ class FormController extends ActionController
     }
 
     /**
-     * action search
-     *
      * @param string $letter
      * @param string $searchWord
-     *
-     * @return void
      */
-    public function searchAction($letter = '', $searchWord = '') {
+    public function searchAction($letter = '', $searchWord = ''): void
+    {
         $forms = $this->formRepository->findByStartingLetter($letter, $searchWord, $this->settings);
         $this->view->assign('forms', $forms);
         $this->view->assign('glossar', $this->getGlossary());
@@ -79,10 +62,7 @@ class FormController extends ActionController
     }
 
     /**
-     * action show
-     *
      * @param Form $form
-     * @return void
      */
     public function showAction(Form $form)
     {

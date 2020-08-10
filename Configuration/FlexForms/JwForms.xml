@@ -16,7 +16,7 @@
 							<config>
 								<type>select</type>
 								<foreign_table>sys_category</foreign_table>
-								<renderMode>tree</renderMode>
+								<renderType>selectTree</renderType>
 								<treeConfig>
 									<parentField>parent</parentField>
 									<rootUid>0</rootUid>

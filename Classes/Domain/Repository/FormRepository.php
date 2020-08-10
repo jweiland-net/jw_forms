@@ -1,18 +1,13 @@
 <?php
-namespace JWeiland\JwForms\Domain\Repository;
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
+ * This file is part of the package jweiland/jw_forms.
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\JwForms\Domain\Repository;
+
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
@@ -20,8 +15,6 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Class FormRepository
- *
- * @package JWeiland\JwForms\Domain\Repository
  */
 class FormRepository extends Repository
 {
@@ -41,7 +34,8 @@ class FormRepository extends Repository
      *
      * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findByStartingLetter($letter, $searchWord, array $settings = []) {
+    public function findByStartingLetter($letter, $searchWord, array $settings = [])
+    {
         $query = $this->createQuery();
         $placeHolders = [
             'tx_jwforms_domain_model_form',
@@ -53,7 +47,7 @@ class FormRepository extends Repository
             if ($letter == '0-9') {
                 $orQueryForLetter = array_fill(0, 10, 'tx_jwforms_domain_model_form.title LIKE ?');
                 $range = range(0, 9, 1);
-                array_walk($range, function(&$item) {
+                array_walk($range, function (&$item) {
                     $item = $item . '%';
                 });
                 $placeHolders = array_merge($placeHolders, $range);
@@ -86,14 +80,15 @@ class FormRepository extends Repository
             $orQueryForCategories = [];
             foreach (GeneralUtility::intExplode(',', $settings['categories']) as $category) {
                 $orQueryForCategories[] = 'sys_category_record_mm.uid_local IN (?)';
-                $placeHolders[] = (integer) $category;
+                $placeHolders[] = (integer)$category;
             }
             $additionalOrClauseForCategories = ' AND (' . implode(' OR ', $orQueryForCategories) . ') ';
         } else {
             $additionalOrClauseForCategories = '';
         }
 
-        return $query->statement('
+        return $query->statement(
+            '
             SELECT DISTINCT tx_jwforms_domain_model_form.*
             FROM tx_jwforms_domain_model_form
             LEFT JOIN sys_category_record_mm
@@ -106,7 +101,7 @@ class FormRepository extends Repository
             $additionalOrClauseForSearchWord .
             $additionalOrClauseForCategories .
             BackendUtility::BEenableFields('tx_jwforms_domain_model_form') .
-            BackendUtility::deleteClause('tx_jwforms_domain_model_form') . '
+            'AND tx_jwforms_domain_model_form.deleted = 0' . '
             ORDER BY title ASC',
             $placeHolders
         )->execute();
@@ -119,7 +114,8 @@ class FormRepository extends Repository
      *
      * @return array
      */
-    public function getStartingLetters($categories) {
+    public function getStartingLetters($categories)
+    {
         /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Query $query */
         $query = $this->createQuery();
 
@@ -141,7 +137,8 @@ class FormRepository extends Repository
             $additionalWhereQuery .= ' AND (' . implode(' OR ', $orQueryForCategories) . ') ';
         }
 
-        list($availableLetters) = $query->statement('
+        list($availableLetters) = $query->statement(
+            '
             SELECT GROUP_CONCAT(DISTINCT UPPER(LEFT(tx_jwforms_domain_model_form.title, 1))) as letters
             FROM tx_jwforms_domain_model_form
             LEFT JOIN sys_category_record_mm
@@ -152,9 +149,10 @@ class FormRepository extends Repository
             AND sys_category_record_mm.fieldname = ?
             AND tx_jwforms_domain_model_form.pid IN (?)' .
             $additionalWhereQuery .
-            BackendUtility::BEenableFields('tx_jwforms_domain_model_form')	.
-            BackendUtility::deleteClause('tx_jwforms_domain_model_form')	. '
-        ', $placeHolders
+            BackendUtility::BEenableFields('tx_jwforms_domain_model_form') .
+            'AND tx_jwforms_domain_model_form.deleted = 0' . '
+        ',
+            $placeHolders
         )->execute(true);
 
         return $availableLetters;

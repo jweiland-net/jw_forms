@@ -1,61 +1,46 @@
 <?php
-namespace JWeiland\JwForms\Domain\Model;
+
+declare(strict_types=1);
 
 /*
- * This file is part of the TYPO3 CMS project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
- *
+ * This file is part of the package jweiland/jw_forms.
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\JwForms\Domain\Model;
+
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
  * Class Form
- *
- * @package JWeiland\JwForms\Domain\Model
  */
 class Form extends AbstractEntity
 {
     /**
-     * Title
-     *
      * @var string
      *
-     * @validate NotEmpty
+     * @TYPO3\CMS\Extbase\Annotation\Validate("NotEmpty")
      */
     protected $title = '';
 
     /**
-     * File
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
     protected $file;
 
     /**
-     * Categories
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
      */
     protected $categories;
 
     /**
-     * URL to file
-     *
      * @var string
      */
     protected $urlToFile = '';
 
     /**
-     * Tags
-     *
      * @var string
      */
     protected $tags = '';
@@ -71,119 +56,99 @@ class Form extends AbstractEntity
     /**
      * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
      */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->file = new ObjectStorage();
         $this->categories = new ObjectStorage();
     }
 
     /**
-     * Returns the title
-     *
      * @return string $title
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     *
-     * @return void
+     * @return Form
      */
-    public function setTitle($title)
+    public function setTitle(string $title): Form
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
-     * Returns the file
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $file
+     * @return ObjectStorage
      */
-    public function getFile()
+    public function getFile(): ObjectStorage
     {
         return $this->file;
     }
 
     /**
-     * Sets the file
-     *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $file
-     *
-     * @return void
+     * @param ObjectStorage $file
+     * @return Form
      */
-    public function setFile($file)
+    public function setFile(ObjectStorage $file): Form
     {
         $this->file = $file;
+        return $this;
     }
 
     /**
-     * Returns the categories
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories
+     * @return ObjectStorage $categories
      */
-    public function getCategories()
+    public function getCategories(): ObjectStorage
     {
         return $this->categories;
     }
 
     /**
-     * Sets the categories
-     *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories
-     *
-     * @return void
+     * @param ObjectStorage $categories
+     * @return Form
      */
-    public function setCategories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories)
+    public function setCategories(ObjectStorage $categories): Form
     {
         $this->categories = $categories;
+        return $this;
     }
 
     /**
-     * Returns the urlToFile
-     *
      * @return string $urlToFile
      */
-    public function getUrlToFile()
+    public function getUrlToFile(): string
     {
         return $this->urlToFile;
     }
 
     /**
-     * Sets the urlToFile
-     *
      * @param string $urlToFile
-     *
-     * @return void
+     * @return Form
      */
-    public function setUrlToFile($urlToFile)
+    public function setUrlToFile(string $urlToFile): Form
     {
         $this->urlToFile = $urlToFile;
+        return $this;
     }
 
     /**
-     * Returns the tags
-     *
      * @return string $tags
      */
-    public function getTags()
+    public function getTags(): string
     {
         return $this->tags;
     }
 
     /**
-     * Sets the tags
-     *
      * @param string $tags
-     *
-     * @return void
+     * @return Form
      */
-    public function setTags($tags)
+    public function setTags(string $tags): Form
     {
         $this->tags = $tags;
+        return $this;
     }
 }

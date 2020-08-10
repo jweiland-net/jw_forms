@@ -4,13 +4,12 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JWeiland.' . $_EXTKEY,
+    'JWeiland.jw_forms',
     'Forms',
-    array(
+    [
         'Form' => 'list, search, show',
-    ),
-    // non-cacheable actions
-    array(
+    ],
+    [
         'Form' => 'search',
-    )
+    ]
 );
