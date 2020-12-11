@@ -81,9 +81,9 @@ class Form extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage
+     * @return ObjectStorage|null
      */
-    public function getFile(): ObjectStorage
+    public function getFile(): ?ObjectStorage
     {
         return $this->file;
     }
@@ -99,9 +99,9 @@ class Form extends AbstractEntity
     }
 
     /**
-     * @return ObjectStorage $categories
+     * @return ObjectStorage|null
      */
-    public function getCategories(): ObjectStorage
+    public function getCategories(): ?ObjectStorage
     {
         return $this->categories;
     }
