@@ -6,3 +6,9 @@ services:
 
   JWeiland\JwForms\:
     resource: '../Classes/*'
+
+  JWeiland\JwForms\EventListener\AddGlossaryEventListener:
+    tags:
+    - name: event.listener
+      event: JWeiland\JwForms\Event\PostProcessFluidVariablesEvent
+      after: JWeiland\JwForms\EventListener\AddPaginatorEventListener
