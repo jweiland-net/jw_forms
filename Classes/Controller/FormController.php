@@ -37,10 +37,11 @@ class FormController extends ActionController
 
     public function listAction(): void
     {
-        $forms = $this->formRepository->findByStartingLetter('', '', $this->settings);
-        $this->view->assign('forms', $forms);
-        $this->view->assign('glossar', $this->getGlossary());
-        $this->view->assign('searchWord', '');
+        $this->view->assignMultiple([
+            'forms' => $this->formRepository->findByStartingLetter('', '', $this->settings),
+            'glossar' => $this->getGlossary(),
+            'searchWord' => ''
+        ]);
     }
 
     public function searchAction(string $letter = '', string $searchWord = ''): void
