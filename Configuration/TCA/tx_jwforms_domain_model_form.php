@@ -23,7 +23,7 @@ return [
     'types' => [
         '1' => [
             'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden,
-            title, file, url_to_file, tags,
+            title, file, url_to_file, tags, categories,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ],
@@ -195,6 +195,36 @@ return [
                 'size' => 30,
                 'eval' => 'trim'
             ],
+        ],
+        'categories' => [
+            'exclude' => true,
+            'label' => 'LLL:EXT:jw_forms/Resources/Private/Language/locallang_db.xlf:tx_jwforms_domain_model_form.categories',
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'treeConfig' => [
+                    'parentField' => 'parent',
+                    'appearance' => [
+                        'showHeader' => true,
+                        'expandAll' => true,
+                        'maxLevels' => 99,
+                    ],
+                ],
+                'MM' => 'sys_category_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'categories',
+                    'tablenames' => 'tx_jwforms_domain_model_form',
+                ],
+                'MM_opposite_field' => 'items',
+                'foreign_table' => 'sys_category',
+                'foreign_table_where' => ' AND (sys_category.sys_language_uid = 0 OR sys_category.l10n_parent = 0) ORDER BY sys_category.sorting',
+                'size' => 10,
+                'minitems' => 0,
+                'maxitems' => 99,
+                'behaviour' => [
+                    'allowLanguageSynchronization' => true,
+                ],
+            ]
         ],
     ],
 ];
