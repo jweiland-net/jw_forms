@@ -2,12 +2,19 @@
 
 ![Build Status](https://github.com/jweiland-net/jw_forms/workflows/CI/badge.svg)
 
-This extension lets you display a element containing a title and files.
-The provided search form allows for filtering by starting letter and search phrase.
+With this extension you can provide a very simple list of files like PDFs
+for download. It comes with a plugin to list and search the files.
 
-## 1 Usage
+## Feature
 
-### 1.1 Installation
+* Provide file for download
+* Provide URL target for download
+* Assign tags to form record
+* You can search files by title, category title and tags
+
+## 2 Usage
+
+### 2.1 Installation
 
 #### Installation using Composer
 
@@ -23,7 +30,14 @@ composer require jweiland/jw-forms
 
 Download and install `jw_forms` with the extension manager module.
 
-### 1.2 Minimal setup
+### 2.2 Minimal setup
 
 1) Install the extension
-2) Move over to Extension Settings and activate the features you want
+2) Check, if the form table was created
+3) Create a new storage folder
+4) Create a new form record on that storage folder
+5) Assign title
+6) Assign file or URL
+7) Attach form plugin to a page
+8) Insert static template of jw_forms extension
+9) Update TypoScript storagePid constant to storage folder
