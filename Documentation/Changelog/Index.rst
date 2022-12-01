@@ -7,6 +7,11 @@
 Change log
 ==========
 
+Version 3.0.2
+=============
+
+*   Use "equals" to select form records for given categories
+
 Version 3.0.1
 =============
 
