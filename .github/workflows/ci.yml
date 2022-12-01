@@ -5,8 +5,8 @@ on: [push, pull_request]
 
 jobs:
   build:
-
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
         typo3: [^9.5, ^10.4]
@@ -19,26 +19,29 @@ jobs:
             php: '7.1'
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v2
 
-      - name: Checkout
-        uses: actions/checkout@v2
+    - name: Setup PHP ${{ matrix.php }}, with composer and extensions
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: mbstring, dom, zip
 
-      - name: Set up PHP Version ${{ matrix.php }}
-        run: |
-          sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
-          php -v
-      - name: Validate composer.json and composer.lock
-        run: composer validate
+    - name: Validate composer.json and composer.lock
+      run: composer validate
 
-      - name: Install dependencies with typo3/cms-core:${{ matrix.typo3 }}
-        run: |
-          composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
-          git checkout composer.json
-      - name: php-cs-fixer
-        run: composer ci:php:fixer
+    - name: Install dependencies with typo3/cms-core:${{ matrix.typo3 }}
+      run: |
+        composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
+        git checkout composer.json
 
-      - name: Lint PHP
-        run: composer ci:php:lint
+    - name: php-cs-fixer
+      run: composer ci:php:fixer
 
-      - name: Unit Tests
-        run: composer ci:tests:unit
+    - name: Lint PHP
+      run: composer ci:php:lint
+
+    - name: Unit Tests
+      run: |
+        composer ci:tests:unit
