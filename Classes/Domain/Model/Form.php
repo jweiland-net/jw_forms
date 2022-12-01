@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\JwForms\Domain\Model;
 
-use TYPO3\CMS\Extbase\Annotation\Validate;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -23,7 +23,7 @@ class Form extends AbstractEntity
     /**
      * @var string
      *
-     * @Validate("NotEmpty")
+     * @Extbase\Validate("NotEmpty")
      */
     protected $title = '';
 
@@ -34,6 +34,8 @@ class Form extends AbstractEntity
 
     /**
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+     *
+     * @Extbase\ORM\Lazy
      */
     protected $categories;
 
