@@ -60,6 +60,7 @@ class AddGlossaryEventListener extends AbstractControllerEventListener
             'extensionName' => 'JwForms',
             'pluginName' => 'Forms',
             'controllerName' => 'Form',
+            'actionName' => 'search',
             'column' => 'title',
             'settings' => $event->getSettings()
         ];
