@@ -64,7 +64,7 @@ class FormRepository extends Repository
         if ($settings['categories']) {
             $orConstraintsForCategories = [];
             foreach (GeneralUtility::intExplode(',', $settings['categories']) as $category) {
-                $orConstraintsForCategories[] = $query->in('categories.uid', $category);
+                $orConstraintsForCategories[] = $query->equals('categories.uid', $category);
             }
             $constraints[] = $query->logicalOr($orConstraintsForCategories);
         }
