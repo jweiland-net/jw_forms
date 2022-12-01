@@ -7,6 +7,7 @@ plugin.tx_jwforms {
 		# cat=plugin.tx_jwforms/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:jw_forms/Resources/Private/Layouts/
 	}
+
 	persistence {
 		# cat=plugin.tx_jwforms//a; type=string; label=Default storage PID
 		storagePid =

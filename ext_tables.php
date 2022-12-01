@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-    'JWeiland.jw_forms',
+    'JwForms',
     'Forms',
     'JW Forms'
 );
@@ -16,4 +16,3 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['jwforms_form
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue('jwforms_forms', 'FILE:EXT:jw_forms/Configuration/FlexForms/JwForms.xml');
 
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::allowTableOnStandardPages('tx_jwforms_domain_model_form');
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable('jw_forms', 'tx_jwforms_domain_model_form', 'categories');

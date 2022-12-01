@@ -1,0 +1,14 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  JWeiland\JwForms\:
+    resource: '../Classes/*'
+
+  JWeiland\JwForms\EventListener\AddGlossaryEventListener:
+    tags:
+    - name: event.listener
+      event: JWeiland\JwForms\Event\PostProcessFluidVariablesEvent
+      after: JWeiland\JwForms\EventListener\AddPaginatorEventListener
