@@ -10,7 +10,9 @@ namespace JWeiland\JwForms\Domain\Repository;
 
 use TYPO3\CMS\Backend\Utility\BackendUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\Query;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
@@ -26,15 +28,9 @@ class FormRepository extends Repository
     ];
 
     /**
-     * find all records starting with given letter
-     *
-     * @param string $letter
-     * @param string $searchWord
-     * @param array $settings
-     *
-     * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
+     * Find all records starting with given letter
      */
-    public function findByStartingLetter($letter, $searchWord, array $settings = [])
+    public function findByStartingLetter(string $letter, string $searchWord, array $settings = []): QueryResultInterface
     {
         $query = $this->createQuery();
         $placeHolders = [
@@ -44,7 +40,7 @@ class FormRepository extends Repository
 
         // add query for letter
         if ($letter) {
-            if ($letter == '0-9') {
+            if ($letter === '0-9') {
                 $orQueryForLetter = array_fill(0, 10, 'tx_jwforms_domain_model_form.title LIKE ?');
                 $range = range(0, 9, 1);
                 array_walk($range, function (&$item) {
@@ -108,15 +104,11 @@ class FormRepository extends Repository
     }
 
     /**
-     * get an array with available starting letters
-     *
-     * @param string $categories
-     *
-     * @return array
+     * Get an array with available starting letters
      */
-    public function getStartingLetters($categories)
+    public function getStartingLetters(string $categories): array
     {
-        /** @var \TYPO3\CMS\Extbase\Persistence\Generic\Query $query */
+        /** @var Query $query */
         $query = $this->createQuery();
 
         $placeHolders = [];
@@ -137,7 +129,7 @@ class FormRepository extends Repository
             $additionalWhereQuery .= ' AND (' . implode(' OR ', $orQueryForCategories) . ') ';
         }
 
-        list($availableLetters) = $query->statement(
+        [$availableLetters] = $query->statement(
             '
             SELECT GROUP_CONCAT(DISTINCT UPPER(LEFT(tx_jwforms_domain_model_form.title, 1))) as letters
             FROM tx_jwforms_domain_model_form

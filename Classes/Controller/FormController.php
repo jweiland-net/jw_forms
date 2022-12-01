@@ -30,17 +30,11 @@ class FormController extends ActionController
      */
     protected $letters = '0-9,A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z';
 
-    /**
-     * @param FormRepository $formRepository
-     */
     public function injectFormRepository(FormRepository $formRepository): void
     {
         $this->formRepository = $formRepository;
     }
 
-    /**
-     * action list
-     */
     public function listAction(): void
     {
         $forms = $this->formRepository->findByStartingLetter('', '', $this->settings);
@@ -49,32 +43,24 @@ class FormController extends ActionController
         $this->view->assign('searchWord', '');
     }
 
-    /**
-     * @param string $letter
-     * @param string $searchWord
-     */
-    public function searchAction($letter = '', $searchWord = ''): void
+    public function searchAction(string $letter = '', string $searchWord = ''): void
     {
-        $forms = $this->formRepository->findByStartingLetter($letter, $searchWord, $this->settings);
-        $this->view->assign('forms', $forms);
-        $this->view->assign('glossar', $this->getGlossary());
-        $this->view->assign('searchWord', $searchWord);
+        $this->view->assignMultiple([
+            'forms' => $this->formRepository->findByStartingLetter($letter, $searchWord, $this->settings),
+            'glossar' => $this->getGlossary(),
+            'searchWord' => $searchWord
+        ]);
     }
 
-    /**
-     * @param Form $form
-     */
-    public function showAction(Form $form)
+    public function showAction(Form $form): void
     {
         $this->view->assign('form', $form);
     }
 
     /**
-     * get an array with letters as keys for the glossar
-     *
-     * @return array Array with starting letters as keys
+     * Get an array with letters as keys for the glossar
      */
-    public function getGlossary()
+    public function getGlossary(): array
     {
         $possibleLetters = GeneralUtility::trimExplode(',', $this->letters);
 

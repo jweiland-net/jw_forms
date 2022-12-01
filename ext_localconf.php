@@ -4,12 +4,12 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JWeiland.jw_forms',
+    'JwForms',
     'Forms',
     [
-        'Form' => 'list, search, show',
+        \JWeiland\JwForms\Controller\FormController::class => 'list, search, show',
     ],
     [
-        'Form' => 'search',
+        \JWeiland\JwForms\Controller\FormController::class => 'search',
     ]
 );
