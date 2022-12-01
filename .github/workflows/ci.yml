@@ -1,32 +1,33 @@
 # Adapted from https://github.com/TYPO3GmbH/blog/blob/master/.github/workflows/ci.yml
 name: CI
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
+    runs-on: ubuntu-latest
 
-    runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        typo3: [^9.5, ^10.4]
-        php: ['7.2', '7.3', '7.4']
-        os: [ubuntu-latest]
-        exclude:
-          - typo3: ^10.4
-            php: '7.0'
-          - typo3: ^10.4
-            php: '7.1'
+        typo3: [^10.4, ^11.5]
+        php: ['7.4']
+        include:
+        - typo3: ^11.5
+          php: '8.0'
+        - typo3: ^11.5
+          php: '8.1'
 
     steps:
-
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Set up PHP Version ${{ matrix.php }}
-        run: |
-          sudo update-alternatives --set php /usr/bin/php${{ matrix.php }}
-          php -v
+      - name: Setup PHP ${{ matrix.php }}, with composer and extensions
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: mbstring, dom, zip
+
       - name: Validate composer.json and composer.lock
         run: composer validate
 
@@ -34,6 +35,7 @@ jobs:
         run: |
           composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
           git checkout composer.json
+
       - name: php-cs-fixer
         run: composer ci:php:fixer
 
@@ -41,4 +43,5 @@ jobs:
         run: composer ci:php:lint
 
       - name: Unit Tests
-        run: composer ci:tests:unit
+        run: |
+          composer ci:tests:unit
