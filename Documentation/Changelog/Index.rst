@@ -7,6 +7,13 @@
 Change log
 ==========
 
+Version 3.0.3
+=============
+
+*   Call search action when clicking on letters in glossar
+*   Add Laxy annotation to categories property
+*   Remove unused method getStartingLetters from FormRepository
+
 Version 3.0.2
 =============
 
