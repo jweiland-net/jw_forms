@@ -1,14 +1,13 @@
 <?php
 $EM_CONF[$_EXTKEY] = [
     'title' => 'JW Forms',
-    'description' => 'This extension gives you the possibility to display title and file ' .
-        'of forms (PDF, ...) by starting letter and search forms of this list.',
+    'description' => 'With this extension you can provide a list of downloadable files in FE.',
     'category' => 'plugin',
     'author' => 'Stefan Froemken',
     'author_email' => 'sfroemken@jweiland.net',
     'author_company' => 'jweiland.net',
     'state' => 'stable',
-    'version' => '3.0.0',
+    'version' => '3.0.1',
     'constraints' => [
         'depends' => [
             'typo3' => '10.4.32-11.5.99',
