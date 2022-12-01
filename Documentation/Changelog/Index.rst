@@ -6,6 +6,11 @@
 Change log
 ==========
 
+Version 2.0.3
+-------------
+
+*  Update description in ext_emconf.php
+
 Version 2.0.2
 -------------
 
