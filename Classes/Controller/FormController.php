@@ -47,13 +47,6 @@ class FormController extends ActionController
         ]);
     }
 
-    public function showAction(Form $form): void
-    {
-        $this->postProcessAndAssignFluidVariables([
-            'form' => $form
-        ]);
-    }
-
     protected function postProcessAndAssignFluidVariables(array $variables = []): void
     {
         /** @var PostProcessFluidVariablesEvent $event */
