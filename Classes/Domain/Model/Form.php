@@ -12,13 +12,11 @@ declare(strict_types=1);
 namespace JWeiland\JwForms\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation\Validate;
-use TYPO3\CMS\Extbase\Domain\Model\FileReference;
-use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Class Form
+ * Domain model for form records
  */
 class Form extends AbstractEntity
 {

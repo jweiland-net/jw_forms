@@ -44,10 +44,10 @@ class FormRepository extends Repository
             $orConstraintsForLetter = [];
             if ($letter === '0-9') {
                 foreach (range(0, 9) as $number) {
-                    $orConstraintsForLetter[] = $query->like('title', $number .'%');
+                    $orConstraintsForLetter[] = $query->like('title', $number . '%');
                 }
             } else {
-                $orConstraintsForLetter[] = $query->like('title', $letter .'%');
+                $orConstraintsForLetter[] = $query->like('title', $letter . '%');
             }
 
             $constraints[] = $query->logicalOr($orConstraintsForLetter);
