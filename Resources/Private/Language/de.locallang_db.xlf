@@ -3,29 +3,29 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2013-03-40T10:38:40Z" product-name="jw_forms" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tx_jwforms_domain_model_form">
+      <trans-unit id="tx_jwforms_domain_model_form" approved="yes">
         <source>Forms</source>
-        <target state="needs-translation">Forms</target>
+        <target state="final">Formulare</target>
       </trans-unit>
-      <trans-unit id="tx_jwforms_domain_model_form.title">
+      <trans-unit id="tx_jwforms_domain_model_form.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tx_jwforms_domain_model_form.file">
+      <trans-unit id="tx_jwforms_domain_model_form.file" approved="yes">
         <source>File</source>
-        <target state="needs-translation">File</target>
+        <target state="final">Datei</target>
       </trans-unit>
-      <trans-unit id="tx_jwforms_domain_model_form.categories">
+      <trans-unit id="tx_jwforms_domain_model_form.categories" approved="yes">
         <source>Categories</source>
-        <target state="needs-translation">Categories</target>
+        <target state="final">Kategorien</target>
       </trans-unit>
-      <trans-unit id="tx_jwforms_domain_model_form.url_to_file">
+      <trans-unit id="tx_jwforms_domain_model_form.url_to_file" approved="yes">
         <source>URL to file</source>
-        <target state="needs-translation">URL to file</target>
+        <target state="final">Link zur Datei</target>
       </trans-unit>
-      <trans-unit id="tx_jwforms_domain_model_form.tags">
+      <trans-unit id="tx_jwforms_domain_model_form.tags" approved="yes">
         <source>Tags</source>
-        <target state="needs-translation">Tags</target>
+        <target state="final">Schlagworte</target>
       </trans-unit>
     </body>
   </file>
