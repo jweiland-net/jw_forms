@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-03-40T10:38:40Z" product-name="jw_forms" target-language="tr">
+    <header/>
+    <body>
+      <trans-unit id="tx_jwforms_domain_model_form">
+        <source>Forms</source>
+        <target state="needs-translation">Forms</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.file">
+        <source>File</source>
+        <target state="needs-translation">File</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.categories">
+        <source>Categories</source>
+        <target state="needs-translation">Categories</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.url_to_file">
+        <source>URL to file</source>
+        <target state="needs-translation">URL to file</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.tags">
+        <source>Tags</source>
+        <target state="needs-translation">Tags</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
