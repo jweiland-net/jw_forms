@@ -3,13 +3,13 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2013-03-40T10:38:40Z" product-name="jw_forms" target-language="de">
     <header/>
     <body>
-      <trans-unit id="sheetGeneral">
+      <trans-unit id="sheetGeneral" approved="yes">
         <source>General</source>
-        <target state="needs-translation">General</target>
+        <target state="final">Allgemein</target>
       </trans-unit>
-      <trans-unit id="categories">
+      <trans-unit id="categories" approved="yes">
         <source>Categories</source>
-        <target state="needs-translation">Categories</target>
+        <target state="final">Kategorien</target>
       </trans-unit>
     </body>
   </file>
