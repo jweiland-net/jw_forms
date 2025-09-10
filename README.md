@@ -41,3 +41,9 @@ Download and install `jw_forms` with the extension manager module.
 7) Attach form plugin to a page
 8) Insert static template of jw_forms extension
 9) Update TypoScript storagePid constant to storage folder
+
+## 3 Support
+
+Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/jw_forms/issues).
+
+For commercial support, please contact us at [support@jweiland.net](support@jweiland.net).
