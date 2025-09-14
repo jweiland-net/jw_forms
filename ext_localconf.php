@@ -1,15 +1,19 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+
+if (!defined('TYPO3')) {
     die ('Access denied.');
 }
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+use JWeiland\JwForms\Controller\FormController;
+
+ExtensionUtility::configurePlugin(
     'JwForms',
     'Forms',
     [
-        \JWeiland\JwForms\Controller\FormController::class => 'list, search, show',
+        FormController::class => 'list, search, show',
     ],
     [
-        \JWeiland\JwForms\Controller\FormController::class => 'search',
+        FormController::class => 'search',
     ]
 );

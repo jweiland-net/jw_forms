@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\JwForms\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use JWeiland\JwForms\Domain\Model\Form;
 use JWeiland\JwForms\Domain\Repository\FormRepository;
 use JWeiland\JwForms\Event\PostProcessFluidVariablesEvent;
@@ -31,20 +32,22 @@ class FormController extends ActionController
         $this->formRepository = $formRepository;
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'forms' => $this->formRepository->findByStartingLetter('', '', $this->settings),
             'searchWord' => ''
         ]);
+        return $this->htmlResponse();
     }
 
-    public function searchAction(string $letter = '', string $searchWord = ''): void
+    public function searchAction(string $letter = '', string $searchWord = ''): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'forms' => $this->formRepository->findByStartingLetter($letter, $searchWord, $this->settings),
             'searchWord' => $searchWord
         ]);
+        return $this->htmlResponse();
     }
 
     protected function postProcessAndAssignFluidVariables(array $variables = []): void

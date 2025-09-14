@@ -9,7 +9,12 @@
 		{
 			"name": "Stefan Froemken",
 			"email": "sfroemken@jweiland.net",
-			"role": "Developer"
+			"role": "Lead Developer"
+		},
+		{
+			"name": "Hoja Mustaffa Abdul Latheef",
+			"email": "projects@jweiland.net",
+			"role": "Senior Developer"
 		}
 	],
 	"support": {
@@ -18,13 +23,12 @@
 		"source": "https://github.com/jweiland-net/jw_forms"
 	},
 	"require": {
-		"typo3/cms-core": "^10.4.32 || ^11.5.16"
+		"typo3/cms-core": "^13.4.0"
 	},
 	"require-dev": {
-		"roave/security-advisories": "dev-latest",
-		"friendsofphp/php-cs-fixer": "^3.0",
-		"nimut/testing-framework": "^6.0",
-		"phpunit/phpunit": "^9.5"
+		"ergebnis/composer-normalize": "^2.44",
+		"friendsofphp/php-cs-fixer": "^3.14",
+		"phpstan/phpstan": "^1.10"
 	},
 	"replace": {
 		"typo3-ter/jw_forms": "self.version"
@@ -35,23 +39,20 @@
 		}
 	},
 	"config": {
-		"vendor-dir": ".build/vendor",
 		"allow-plugins": {
+			"ergebnis/composer-normalize": true,
 			"typo3/class-alias-loader": true,
 			"typo3/cms-composer-installers": true
-		}
+		},
+		"bin-dir": ".Build/bin",
+		"sort-packages": true,
+		"vendor-dir": ".Build/vendor"
 	},
 	"extra": {
 		"typo3/cms": {
 			"extension-key": "jw_forms",
-			"app-dir": ".build",
-			"web-dir": ".build/public"
+			"app-dir": ".Build",
+			"web-dir": ".Build/public"
 		}
-	},
-	"scripts": {
-		"php:fix": ".build/vendor/bin/php-cs-fixer --config=Build/.php_cs.php fix Classes Tests",
-		"ci:php:lint": "find *.php Classes Configuration Tests -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l",
-		"ci:php:fixer": ".build/vendor/bin/php-cs-fixer --config=Build/.php_cs.php fix --dry-run -v --show-progress=dots --diff Classes Tests",
-		"ci:tests:unit": ".build/vendor/bin/phpunit -c .build/vendor/nimut/testing-framework/res/Configuration/UnitTests.xml Tests/Unit"
 	}
 }
