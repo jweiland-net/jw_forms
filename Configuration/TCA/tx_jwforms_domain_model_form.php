@@ -1,7 +1,14 @@
 <?php
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+/*
+ * This file is part of the package jweiland/jw-forms.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 use TYPO3\CMS\Core\Resource\File;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
 return [
     'ctrl' => [
@@ -174,7 +181,7 @@ return [
                         ],
                     ],
                 ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] . ',doc,docx,dot,dotx,xls,xlsx,xltx,xlt,jpg,png,eps,pdf,pptx,ppt,potx,pot'
+                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'] . ',doc,docx,dot,dotx,xls,xlsx,xltx,xlt,jpg,png,eps,pdf,pptx,ppt,potx,pot',
             ),
         ],
         'url_to_file' => [

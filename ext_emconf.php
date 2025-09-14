@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of the package jweiland/jw-forms.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'JW Forms',
     'description' => 'With this extension you can provide a list of downloadable files in FE.',

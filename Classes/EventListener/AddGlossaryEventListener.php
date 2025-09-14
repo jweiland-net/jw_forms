@@ -31,8 +31,8 @@ class AddGlossaryEventListener extends AbstractControllerEventListener
     protected $allowedControllerActions = [
         'Form' => [
             'list',
-            'search'
-        ]
+            'search',
+        ],
     ];
 
     public function __construct(GlossaryService $glossaryService, FormRepository $formRepository)
@@ -48,8 +48,8 @@ class AddGlossaryEventListener extends AbstractControllerEventListener
                 'glossar',
                 $this->glossaryService->buildGlossary(
                     $this->formRepository->getQueryBuilderToFindAllEntries(),
-                    $this->getOptions($event)
-                )
+                    $this->getOptions($event),
+                ),
             );
         }
     }
@@ -62,7 +62,7 @@ class AddGlossaryEventListener extends AbstractControllerEventListener
             'controllerName' => 'Form',
             'actionName' => 'search',
             'column' => 'title',
-            'settings' => $event->getSettings()
+            'settings' => $event->getSettings(),
         ];
 
         if (

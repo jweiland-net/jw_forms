@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace JWeiland\JwForms\Controller;
 
-use Psr\Http\Message\ResponseInterface;
 use JWeiland\JwForms\Domain\Model\Form;
 use JWeiland\JwForms\Domain\Repository\FormRepository;
 use JWeiland\JwForms\Event\PostProcessFluidVariablesEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -36,7 +36,7 @@ class FormController extends ActionController
     {
         $this->postProcessAndAssignFluidVariables([
             'forms' => $this->formRepository->findByStartingLetter('', '', $this->settings),
-            'searchWord' => ''
+            'searchWord' => '',
         ]);
         return $this->htmlResponse();
     }
@@ -45,7 +45,7 @@ class FormController extends ActionController
     {
         $this->postProcessAndAssignFluidVariables([
             'forms' => $this->formRepository->findByStartingLetter($letter, $searchWord, $this->settings),
-            'searchWord' => $searchWord
+            'searchWord' => $searchWord,
         ]);
         return $this->htmlResponse();
     }
@@ -57,8 +57,8 @@ class FormController extends ActionController
             new PostProcessFluidVariablesEvent(
                 $this->request,
                 $this->settings,
-                $variables
-            )
+                $variables,
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());

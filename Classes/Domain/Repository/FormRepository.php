@@ -27,7 +27,7 @@ class FormRepository extends Repository
      * @var array
      */
     protected $defaultOrderings = [
-        'title' => QueryInterface::ORDER_ASCENDING
+        'title' => QueryInterface::ORDER_ASCENDING,
     ];
 
     /**
@@ -89,9 +89,9 @@ class FormRepository extends Repository
                     'pid',
                     $queryBuilder->createNamedParameter(
                         $query->getQuerySettings()->getStoragePageIds(),
-                        Connection::PARAM_INT_ARRAY
-                    )
-                )
+                        Connection::PARAM_INT_ARRAY,
+                    ),
+                ),
             );
 
         if ($category) {
@@ -102,20 +102,20 @@ class FormRepository extends Repository
                     'mm',
                     (string)$queryBuilder->expr()->and($queryBuilder->expr()->eq(
                         'mm.tablenames',
-                        $queryBuilder->createNamedParameter($table, \PDO::PARAM_STR)
+                        $queryBuilder->createNamedParameter($table, \PDO::PARAM_STR),
                     ), $queryBuilder->expr()->eq(
                         'mm.fieldname',
-                        $queryBuilder->createNamedParameter('categories', \PDO::PARAM_STR)
+                        $queryBuilder->createNamedParameter('categories', \PDO::PARAM_STR),
                     ), $queryBuilder->expr()->eq(
                         'mm.uid_foreign',
-                        $queryBuilder->quoteIdentifier('f.uid')
-                    ))
+                        $queryBuilder->quoteIdentifier('f.uid'),
+                    )),
                 )
                 ->andWhere(
                     $queryBuilder->expr()->eq(
                         'mm.uid_local',
-                        $queryBuilder->createNamedParameter($category, \PDO::PARAM_INT)
-                    )
+                        $queryBuilder->createNamedParameter($category, \PDO::PARAM_INT),
+                    ),
                 );
         }
 
