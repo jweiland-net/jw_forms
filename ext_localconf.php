@@ -23,4 +23,5 @@ ExtensionUtility::configurePlugin(
     [
         FormController::class => 'search',
     ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );

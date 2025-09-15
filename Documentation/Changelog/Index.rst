@@ -7,6 +7,12 @@
 Change log
 ==========
 
+Version 5.0.0
+=============
+
+*   TYPO3 13 Compatibility fixes
+*   Removed older version compatibilities
+
 Version 3.0.3
 =============
 
