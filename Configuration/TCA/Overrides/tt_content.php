@@ -16,8 +16,6 @@ ExtensionUtility::registerPlugin(
     'JW Forms'
 );
 
-ExtensionManagementUtility::addStaticFile('jw_forms', 'Configuration/TypoScript', 'JW Forms');
-
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist']['jwforms_forms'] = 'layout,select_key,pages,recursive';
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist']['jwforms_forms'] = 'pi_flexform';
 ExtensionManagementUtility::addPiFlexFormValue(
