@@ -1,0 +1,11 @@
+plugin.tx_jwforms {
+  view {
+    templateRootPaths.100 = {$jwforms.templateRootPath}
+    partialRootPaths.100 = {$jwforms.partialRootPath}
+    layoutRootPaths.100 = {$jwforms.layoutRootPath}
+  }
+
+  persistence {
+    storagePid = {$jwforms.storagePid}
+  }
+}

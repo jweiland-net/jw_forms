@@ -1,0 +1,37 @@
+categories:
+  jwforms:
+    label: 'jwforms'
+  jwforms.templates:
+    label: 'Templates'
+    parent: jwforms
+  jwforms.pages:
+    label: 'Pages'
+    parent: jwforms
+  jwforms.settings:
+    label: 'Settings'
+    parent: jwforms
+settings:
+  jwforms.templateRootPath:
+    label: 'Templates'
+    category: jwforms.templates
+    description: 'Path to template root'
+    type: string
+    default: 'EXT:jw_forms/Resources/Private/Templates/'
+  jwforms.partialRootPath:
+    label: 'Partials'
+    category: jwforms.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:jw_forms/Resources/Private/Partials/'
+  jwforms.layoutRootPath:
+    label: 'Layouts'
+    category: jwforms.templates
+    description: 'Path to layout root'
+    type: string
+    default: 'EXT:jw_forms/Resources/Private/Layouts/'
+  jwforms.storagePid:
+    label: 'Default storage PID'
+    category: jwforms.settings
+    description: 'Folder that stores all POIs'
+    type: int
+    default: 0
