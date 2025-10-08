@@ -6,7 +6,7 @@
 [![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
 [![TYPO3 13.4][TYPO3-shield]][TYPO3-13-url]
 
-![Build Status](https://github.com/jweiland-net/jw_forms/workflows/CI/badge.svg)
+![Build Status](https://github.com/jweiland-net/jw_forms/actions/workflows/ci.yml/badge.svg)
 
 With this extension you can provide a very simple list of files like PDFs
 for download. It comes with a plugin to list and search the files.
