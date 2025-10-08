@@ -1,6 +1,12 @@
 # TYPO3 Extension `jw_forms`
 
-![Build Status](https://github.com/jweiland-net/jw_forms/workflows/CI/badge.svg)
+[![Packagist][packagist-logo-stable]][extension-packagist-url]
+[![Latest Stable Version][extension-build-shield]][extension-ter-url]
+[![Total Downloads][extension-downloads-badge]][extension-packagist-url]
+[![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
+[![TYPO3 13.4][TYPO3-shield]][TYPO3-13-url]
+
+![Build Status](https://github.com/jweiland-net/jw_forms/actions/workflows/ci.yml/badge.svg)
 
 With this extension you can provide a very simple list of files like PDFs
 for download. It comes with a plugin to list and search the files.
@@ -47,3 +53,21 @@ Download and install `jw_forms` with the extension manager module.
 Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/jw_forms/issues).
 
 For commercial support, please contact us at [support@jweiland.net](support@jweiland.net).
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[extension-build-shield]: https://poser.pugx.org/jweiland/jw-forms/v/stable.svg?style=for-the-badge
+
+[extension-downloads-badge]: https://poser.pugx.org/jweiland/jw-forms/d/total.svg?style=for-the-badge
+
+[extension-monthly-downloads]: https://poser.pugx.org/jweiland/jw-forms/d/monthly?style=for-the-badge
+
+[extension-ter-url]: https://extensions.typo3.org/extension/daycarecenters/
+
+[extension-packagist-url]: https://packagist.org/packages/jweiland/jw-forms/
+
+[packagist-logo-stable]: https://img.shields.io/badge/--grey.svg?style=for-the-badge&logo=packagist&logoColor=white
+
+[TYPO3-13-url]: https://get.typo3.org/version/13
+
+[TYPO3-shield]: https://img.shields.io/badge/TYPO3-13.4-green.svg?style=for-the-badge&logo=typo3

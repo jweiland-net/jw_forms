@@ -14,6 +14,7 @@ namespace JWeiland\JwForms\Controller;
 use JWeiland\JwForms\Domain\Model\Form;
 use JWeiland\JwForms\Domain\Repository\FormRepository;
 use JWeiland\JwForms\Event\PostProcessFluidVariablesEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
@@ -31,20 +32,22 @@ class FormController extends ActionController
         $this->formRepository = $formRepository;
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'forms' => $this->formRepository->findByStartingLetter('', '', $this->settings),
-            'searchWord' => ''
+            'searchWord' => '',
         ]);
+        return $this->htmlResponse();
     }
 
-    public function searchAction(string $letter = '', string $searchWord = ''): void
+    public function searchAction(string $letter = '', string $searchWord = ''): ResponseInterface
     {
         $this->postProcessAndAssignFluidVariables([
             'forms' => $this->formRepository->findByStartingLetter($letter, $searchWord, $this->settings),
-            'searchWord' => $searchWord
+            'searchWord' => $searchWord,
         ]);
+        return $this->htmlResponse();
     }
 
     protected function postProcessAndAssignFluidVariables(array $variables = []): void
@@ -54,8 +57,8 @@ class FormController extends ActionController
             new PostProcessFluidVariablesEvent(
                 $this->request,
                 $this->settings,
-                $variables
-            )
+                $variables,
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());

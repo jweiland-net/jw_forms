@@ -1,15 +1,27 @@
 <?php
-if (!defined('TYPO3_MODE')) {
-    die ('Access denied.');
+
+/*
+ * This file is part of the package jweiland/jw-forms.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+if (!defined('TYPO3')) {
+    die('Access denied.');
 }
 
-\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+use JWeiland\JwForms\Controller\FormController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
+ExtensionUtility::configurePlugin(
     'JwForms',
     'Forms',
     [
-        \JWeiland\JwForms\Controller\FormController::class => 'list, search, show',
+        FormController::class => 'list, search, show',
     ],
     [
-        \JWeiland\JwForms\Controller\FormController::class => 'search',
-    ]
+        FormController::class => 'search',
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
 );
