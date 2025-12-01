@@ -7,6 +7,11 @@
 Change log
 ==========
 
+Version 5.0.2
+=============
+
+*   [BUGFIX] Fixed TCA Migrations
+
 Version 5.0.1
 =============
 
