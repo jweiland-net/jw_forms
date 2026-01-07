@@ -7,6 +7,11 @@
 Change log
 ==========
 
+Version 5.0.3
+=============
+
+*   [BUGFIX] Fixed Repository Queries
+
 Version 5.0.2
 =============
 

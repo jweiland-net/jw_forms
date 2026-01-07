@@ -48,11 +48,11 @@ class FormRepository extends Repository
                 $orConstraintsForLetter[] = $query->like('title', $letter . '%');
             }
 
-            $constraints[] = $query->logicalOr($orConstraintsForLetter);
+            $constraints[] = $query->logicalOr(...$orConstraintsForLetter);
         }
 
         if ($searchWord) {
-            $constraints[] = $query->logicalOr([
+            $constraints[] = $query->logicalOr(...[
                 $query->like('title', '%' . $searchWord . '%'),
                 $query->like('tags', '%' . $searchWord . '%'),
                 $query->like('categories.title', '%' . $searchWord . '%'),
@@ -64,14 +64,14 @@ class FormRepository extends Repository
             foreach (GeneralUtility::intExplode(',', $settings['categories']) as $category) {
                 $orConstraintsForCategories[] = $query->equals('categories.uid', $category);
             }
-            $constraints[] = $query->logicalOr($orConstraintsForCategories);
+            $constraints[] = $query->logicalOr(...$orConstraintsForCategories);
         }
 
         if ($constraints === []) {
             return $query->execute();
         }
 
-        return $query->matching($query->logicalAnd($constraints))->execute();
+        return $query->matching($query->logicalAnd(...$constraints))->execute();
     }
 
     public function getQueryBuilderToFindAllEntries(int $category = 0): QueryBuilder
@@ -102,10 +102,10 @@ class FormRepository extends Repository
                     'mm',
                     (string)$queryBuilder->expr()->and($queryBuilder->expr()->eq(
                         'mm.tablenames',
-                        $queryBuilder->createNamedParameter($table, \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter($table, Connection::PARAM_STR),
                     ), $queryBuilder->expr()->eq(
                         'mm.fieldname',
-                        $queryBuilder->createNamedParameter('categories', \PDO::PARAM_STR),
+                        $queryBuilder->createNamedParameter('categories', Connection::PARAM_STR),
                     ), $queryBuilder->expr()->eq(
                         'mm.uid_foreign',
                         $queryBuilder->quoteIdentifier('f.uid'),
@@ -114,7 +114,7 @@ class FormRepository extends Repository
                 ->andWhere(
                     $queryBuilder->expr()->eq(
                         'mm.uid_local',
-                        $queryBuilder->createNamedParameter($category, \PDO::PARAM_INT),
+                        $queryBuilder->createNamedParameter($category, Connection::PARAM_INT),
                     ),
                 );
         }
