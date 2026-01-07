@@ -29,7 +29,7 @@ class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getTitle(): string
     {
-        return 'EXT:jw_forms - Migrate plugins to Content Elements';
+        return '[jw_forms] Migrate plugins to Content Elements';
     }
 
     public function getDescription(): string

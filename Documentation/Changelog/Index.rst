@@ -7,6 +7,11 @@
 Change log
 ==========
 
+Version 5.0.4
+=============
+
+*   [TASK] Updated wizards with extension title format
+
 Version 5.0.3
 =============
 
