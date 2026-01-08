@@ -7,6 +7,11 @@
 Change log
 ==========
 
+Version 5.0.5
+=============
+
+*   [BUGFIX] Fixed issue with event listener lacking of REQUEST object
+
 Version 5.0.4
 =============
 
