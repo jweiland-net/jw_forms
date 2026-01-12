@@ -26,8 +26,11 @@ return [
             'starttime' => 'starttime',
             'endtime' => 'endtime',
         ],
-        'searchFields' => 'title,tags',
         'iconfile' => 'EXT:jw_forms/Resources/Public/Icons/tx_jwforms_domain_model_form.gif',
+        'searchFields' => 'title,tags',
+        'security' => [
+            'ignorePageTypeRestriction' => true,
+        ],
     ],
     'types' => [
         '1' => [
@@ -50,19 +53,24 @@ return [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => ['type' => 'language'],
+            'config' => [
+                'type' => 'language',
+            ],
+        ],
+        'l10n_source' => [
+            'config' => [
+                'type' => 'passthrough',
+            ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['label' => '', 'value' => 0],
-                ],
-                'foreign_table' => 'tx_jwforms_domain_model_form',
-                'foreign_table_where' => 'AND tx_jwforms_domain_model_form.pid=###CURRENT_PID### AND tx_jwforms_domain_model_form.sys_language_uid IN (-1,0)',
+                'type' => 'group',
+                'allowed' => 'tx_jwforms_domain_model_form',
+                'size' => 1,
+                'maxitems' => 1,
+                'minitems' => 0,
                 'default' => 0,
             ],
         ],
@@ -72,27 +80,13 @@ return [
                 'default' => '',
             ],
         ],
-        't3ver_label' => [
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.versionLabel',
-            'config' => [
-                'type' => 'input',
-                'size' => '30',
-                'max' => '255',
-            ],
-        ],
         'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
                 'renderType' => 'checkboxToggle',
-                'items' => [
-                    [
-                        'label' => '',
-                        1 => '',
-                        'invertStateDisplay' => true,
-                    ],
-                ],
+                'default' => 0,
             ],
         ],
         'starttime' => [
@@ -100,7 +94,6 @@ return [
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'datetime',
-                'format' => 'date',
             ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',
@@ -110,10 +103,6 @@ return [
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'datetime',
-                'format' => 'date',
-                'range' => [
-                    'upper' => mktime(0, 0, 0, 1, 1, 2038),
-                ],
             ],
             'l10n_mode' => 'exclude',
             'l10n_display' => 'defaultAsReadonly',

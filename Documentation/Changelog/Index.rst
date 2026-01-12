@@ -7,6 +7,11 @@
 Change log
 ==========
 
+Version 5.0.6
+=============
+
+*   [BUGFIX] TCA Configuration Fixed
+
 Version 5.0.5
 =============
 
