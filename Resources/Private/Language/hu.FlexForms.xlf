@@ -5,11 +5,11 @@
     <body>
       <trans-unit id="sheetGeneral">
         <source>General</source>
-        <target state="needs-translation">General</target>
+        <target state="translated">Általános</target>
       </trans-unit>
       <trans-unit id="categories">
         <source>Categories</source>
-        <target state="needs-translation">Categories</target>
+        <target state="translated">Kategóriák</target>
       </trans-unit>
     </body>
   </file>
