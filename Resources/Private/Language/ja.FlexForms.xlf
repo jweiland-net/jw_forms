@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-03-40T10:38:40Z" product-name="jw_forms" target-language="ja">
+    <header/>
+    <body>
+      <trans-unit id="sheetGeneral">
+        <source>General</source>
+        <target state="needs-translation">General</target>
+      </trans-unit>
+      <trans-unit id="categories">
+        <source>Categories</source>
+        <target state="needs-translation">Categories</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

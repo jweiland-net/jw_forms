@@ -1,32 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2013-03-40T10:38:40Z" product-name="jw_forms">
-		<header/>
-		<body>
-			<trans-unit id="tx_jwforms_domain_model_form">
-				<source>Forms</source>
-				<target>Formulare</target>
-			</trans-unit>
-			<trans-unit id="tx_jwforms_domain_model_form.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_jwforms_domain_model_form.file">
-				<source>File</source>
-				<target>Datei</target>
-			</trans-unit>
-			<trans-unit id="tx_jwforms_domain_model_form.categories">
-				<source>Categories</source>
-				<target>Kategorien</target>
-			</trans-unit>
-			<trans-unit id="tx_jwforms_domain_model_form.url_to_file">
-				<source>URL to file</source>
-				<target>Link zur Datei</target>
-			</trans-unit>
-			<trans-unit id="tx_jwforms_domain_model_form.tags">
-				<source>Tags</source>
-				<target>Schlagworte</target>
-			</trans-unit>
-		</body>
-	</file>
+  <file source-language="en" datatype="plaintext" original="messages" date="2013-03-40T10:38:40Z" product-name="jw_forms" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="tx_jwforms_domain_model_form" approved="yes">
+        <source>Forms</source>
+        <target state="final">Formulare</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.file" approved="yes">
+        <source>File</source>
+        <target state="final">Datei</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.categories" approved="yes">
+        <source>Categories</source>
+        <target state="final">Kategorien</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.url_to_file" approved="yes">
+        <source>URL to file</source>
+        <target state="final">Link zur Datei</target>
+      </trans-unit>
+      <trans-unit id="tx_jwforms_domain_model_form.tags" approved="yes">
+        <source>Tags</source>
+        <target state="final">Schlagworte</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
